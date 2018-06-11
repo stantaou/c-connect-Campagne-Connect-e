@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width,
+            initial-scale=1">
+<style>
+#titre {
+	color: black;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<title>{% block title %}La campagne connectée{% endblock %}</title>
+{% block stylesheets %}
+{% endblock %}
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+<section id="hero">
+	<div class="hero-container">
+		<br>
+		<h1>
+			<a id="titre" href="{{ path("index") }}">La campagne connectée</a>
+		</h1>
+		</br>
+	</div>
+</section>
+<!-- #hero -->
+</head>
+<body>
+	<a class="btn" href="{{ path("se_connecter") }}">Se connecter</a>
+	<a class="btn" href="{{ path("s_inscrire") }}">S'inscrire</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="btn" href="{{ path("catalogue") }}">Catalogue de produits</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="btn" href="{{ path("comment_ca_marche") }}">Comment ça
+		marche</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#panier">Panier</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+	{% block main %}
+	{% endblock %}
+	{% block javascripts %}
+	{% endblock %}
+</body>
+</html>

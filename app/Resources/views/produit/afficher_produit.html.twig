@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<div>
+	{{ produit.nom }} <br />
+    <img src="{{ asset("images/produits/"~image.libelle ) }}"> <br />
+	Type de produit : {{ produit.typeProduit }} <br />
+	Description : {{ description.description }} <br />
+	{% if description.tauxMatiereGrasse != null %}
+	Taux de matiere grasse : {{ description.tauxMatiereGrasse }} <br/>
+	{% endif %}
+	{% if description.valeursNutritionnelles != null %}
+	Valeurs Nutritionnelles : {{ description.valeursNutritionnelles }} <br/>
+	{% endif %}
+	{% if description.methodesConservation != null %}
+	Methodes de conservation : {{ description.methodesConservation }} <br/>
+	{% endif %}
+	{% if description.conseilsCuisine != null %}
+	Conseils de preparation : {{ description.conseilsCuisine }} <br/>
+	{% endif %}
+	Prix : {{ produit.prixAuKg }}/Kg <br />
+	Lot d'achat minimal : {{ produit.quantiteMinimaleAchat }} Kg <br />
+	Date de peremption du produit : {{ produit.datePeremption|date("d/m/Y") }}
+</div>
+{% endblock %}
+
+{% block titre %}
+
+{% endblock %}

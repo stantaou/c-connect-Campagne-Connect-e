@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<a class="btn" href="{{ path('produit_ajouter') }}">Ajouter un
+	produit</a>
+
+{% for produit in produits %}
+{% if not produit.stock == 0  %}
+{% for image in images %}
+<div>
+{% if image.idProduit == produit.idProduit %}
+	<a href="{{ path("produit_afficher", {"slug": produit.slug }) }}"><img src="{{ asset("images/produits/"~image.libelle ) }}"></a> <br />
+	{% endif %}
+	{% endfor %}
+	Nom :
+	{{ produit.nom }}
+	<br /> Stock:
+	{{ produit.stock }}
+	<br /> Prix:
+	{{ produit.prixAuKg }}
+	/Kg <br /> <a class="btn"
+		href="{{ path("produit_supprimer", {"slug": produit.slug }) }}">Supprimer</a>
+	<a class="btn"
+		href="{{ path("produit_modifier", {"slug": produit.slug }) }}">Modifier</a>
+</div>
+
+{% endif %}
+{% if produit.stock == 0 %}
+<div>
+	--------------------------------------------------------------------------------------------------
+	<br />Ce produit ne devrait pas être affiché car son stock est nul : <br />
+	Nom :
+	{{ produit.nom }}
+	<br /> Stock:
+	{{ produit.stock }}
+	<br /> Prix:
+	{{ produit.prixAuKg }}
+	/Kg <br /> <a class="btn"
+		href="{{ path("produit_supprimer", {"slug": produit.slug }) }}">Supprimer</a>
+	<a class="btn"
+		href="{{ path("produit_modifier", {"slug": produit.slug }) }}">Modifier</a>
+	<br />
+	--------------------------------------------------------------------------------------------------
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}
